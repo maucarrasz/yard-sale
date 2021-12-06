@@ -13,5 +13,35 @@
     />
     <link rel="stylesheet" href="./styles/mobile.css" />
   </head>
-  <body></body>
+  <body>
+    <section class="login">
+      <figure class="logo">
+        <img
+          src="./images/logo_yard_sale.svg"
+          alt="Yard Sale Logo"
+          class="logo__img"
+        />
+      </figure>
+      <form action="./home.html" class="login__form">
+        <label for="email" class="login__label">Email address</label>
+        <input
+          type="email"
+          class="login__input"
+          id="email"
+          autocomplete="email"
+          required
+        />
+        <label for="password" class="login__label"> Password</label>
+        <input
+          type="password"
+          class="login__input"
+          id="password"
+          autocomplete="current-password"
+          required
+        />
+        <input type="submit" class="login__button" value="Login" />
+      </form>
+      <a href="#" class="login__link">Forgot my password</a>
+    </section>
+  </body>
 </html>

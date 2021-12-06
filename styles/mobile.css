@@ -6,7 +6,82 @@
   --text-input-field: #f7f7f7;
   --hospital-green: #acd9b2;
 }
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: "Quicksand", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+}
+
+.login {
+  width: 100%;
+  min-width: 320px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin: 128px 0 40px;
+}
+.logo__img {
+  width: 220px;
+}
+
+.login__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.login__label {
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+  font-weight: bolder;
+}
+.login__input {
+  height: 45px;
+  margin-bottom: 28px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--text-input-field);
+  color: var(--very-light-pink);
+  font-size: 1.7rem;
+  font-weight: 300;
+  outline: none;
+}
+.login__button {
+  height: 60px;
+  margin: 16px 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--hospital-green);
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 500;
+}
+.login__link {
+  margin-top: 16px;
+  color: var(--hospital-green);
+  font-size: 1.7rem;
+  text-decoration: none;
+}
+
+/* Hover states */
+.login__button:hover {
+  cursor: pointer;
+}
+.login__link:hover {
+  text-decoration: underline;
 }
