@@ -4,44 +4,255 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Any Shopping</title>
+    <title>Shopping Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/mobile.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
   </head>
   <body>
-    <section class="login">
-      <figure class="logo">
-        <img
-          src="./images/logo_yard_sale.svg"
-          alt="Yard Sale Logo"
-          class="logo__img"
-        />
-      </figure>
-      <form action="./home.html" class="login__form">
-        <label for="email" class="login__label">Email address</label>
-        <input
-          type="email"
-          class="login__input"
-          id="email"
-          autocomplete="email"
-          required
-        />
-        <label for="password" class="login__label"> Password</label>
-        <input
-          type="password"
-          class="login__input"
-          id="password"
-          autocomplete="current-password"
-          required
-        />
-        <input type="submit" class="login__button" value="Login" />
-      </form>
-      <a href="#" class="login__link">Forgot my password</a>
+    <nav>
+      <ul>
+        <a href="./menu-mobile.html">
+          <img src="./images/icon_menu.svg" alt="Menu icon" />
+        </a>
+        <a href=".">
+          <img
+            src="./images/logo_yard_sale.svg"
+            alt="Logo Yard Sale"
+            class="logo"
+          />
+        </a>
+        <div>
+          <a href="./login.html" style="color: black; font-size: 1.6rem"
+            >Log in</a
+          >
+          <a href="#">
+            <img
+              src="./images/icon_shopping_cart.svg"
+              alt="Shopping Cart icon"
+            />
+          </a>
+        </div>
+      </ul>
+    </nav>
+    <section class="main-container">
+      <div class="cards-container">
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <figure class="card__image-container">
+            <img
+              src="./images/chopper-figure.png"
+              alt="Chopper's toy"
+              class="card__image"
+            />
+            <div class="center-text hidden">Removed from cart</div>
+          </figure>
+          <div class="card__additional">
+            <div class="card__info">
+              <span class="card__price">$ 120,00</span
+              ><span class="card__name">Chopper's toy</span>
+            </div>
+            <img
+              src="./images/bt_add_to_cart.svg"
+              alt="Shop icon"
+              class="card__shopping-icon"
+            />
+          </div>
+        </div>
+      </div>
     </section>
+    <script src="./scripts/addRemoveProductToCart.js"></script>
   </body>
 </html>
