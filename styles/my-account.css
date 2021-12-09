@@ -1,0 +1,137 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --dark: #232830;
+  --very-light-pink: #c7c7c7;
+  --text-input-field: #f7f7f7;
+  --hospital-green: #acd9b2;
+  --large: 1.9rem;
+  --medium: 1.7rem;
+  --short: 1.6rem;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Quicksand", sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--white);
+}
+
+nav {
+  width: 100%;
+  height: 60px;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 5px -3px rgba(0, 0, 0, 0.2);
+}
+nav ul {
+  width: 100%;
+  padding: 0 12px;
+  display: flex;
+  justify-content: space-between;
+}
+nav ul li {
+  list-style: none;
+}
+.logo {
+  width: 130px;
+}
+
+.login {
+  width: 100%;
+  min-width: 300px;
+  max-width: 370px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+  position: relative;
+}
+.title {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  color: var(--black);
+  font-size: var(--large);
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.login__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.login__label {
+  margin-bottom: 12px;
+  font-size: var(--medium);
+  font-weight: bolder;
+}
+.value {
+  height: 45px;
+  margin-bottom: 20px;
+  color: var(--very-light-pink);
+  font-size: var(--medium);
+  font-weight: 300;
+}
+.button {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  font-size: var(--large);
+  font-weight: 500;
+}
+.button__secondary {
+  width: calc(100% - 24px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  margin: 0;
+  border: 2px solid var(--hospital-green);
+  background: var(--white);
+  color: var(--hospital-green);
+}
+a {
+  text-decoration: none;
+}
+.login__button {
+  width: calc(100% - 24px);
+  position: absolute;
+  bottom: 20px;
+  margin: 0;
+  background: var(--hospital-green);
+  color: var(--white);
+}
+
+/* Hover states */
+.button__secondary:hover {
+  cursor: pointer;
+  border-color: transparent;
+  background: rgba(172, 217, 178, 0.8);
+  color: var(--white);
+}
+.login__button:hover {
+  cursor: pointer;
+  background: rgba(172, 217, 178, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    width: 100%;
+    position: static;
+    margin-top: 4px;
+  }
+}

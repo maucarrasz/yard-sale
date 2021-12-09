@@ -1,0 +1,106 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --dark: #232830;
+  --very-light-pink: #c7c7c7;
+  --text-input-field: #f7f7f7;
+  --hospital-green: #acd9b2;
+  --large: 1.9rem;
+  --medium: 1.7rem;
+  --short: 1.6rem;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--white);
+  font-family: "Quicksand", sans-serif;
+}
+
+.login {
+  width: 100%;
+  min-width: 300px;
+  max-width: 370px;
+  height: 100vh;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 180px;
+  margin-bottom: 60px;
+}
+
+.title {
+  margin-bottom: 10px;
+  color: var(--black);
+  font-size: var(--large);
+  font-weight: bold;
+}
+.subtitle {
+  color: var(--very-light-pink);
+  font-size: var(--short);
+  font-weight: 500;
+  text-align: center;
+}
+.email-image-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 40px;
+  border-radius: 50%;
+  background: rgba(200, 200, 200, 0.1);
+}
+
+.email-image {
+  width: 90px;
+}
+
+.login__button {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  border: none;
+  border-radius: 10px;
+  background: var(--hospital-green);
+  color: var(--white);
+  font-size: var(--large);
+  font-weight: 500;
+}
+
+.login__additional,
+.login__link {
+  color: var(--very-light-pink);
+  font-size: var(--short);
+  font-weight: 500;
+}
+.login__link {
+  color: var(--hospital-green);
+  text-decoration: none;
+}
+.login__button {
+  text-decoration: none;
+}
+
+/* Hover states */
+.login__button:hover {
+  cursor: pointer;
+  background: rgba(172, 217, 178, 0.8);
+}
+.login__link:hover {
+  text-decoration: underline;
+}
