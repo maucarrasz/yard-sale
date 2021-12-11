@@ -8,6 +8,7 @@
   --large: 1.9rem;
   --medium: 1.7rem;
   --short: 1.6rem;
+  --very-short: 1.4rem;
 }
 * {
   box-sizing: border-box;
@@ -26,19 +27,80 @@ body {
 
 nav {
   width: 100%;
-  min-width: 320px;
-  max-width: 450px;
   height: 60px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   box-shadow: 0px 2px 5px -3px rgba(0, 0, 0, 0.2);
 }
-nav ul {
+.navbar-list {
   width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
   padding: 0 12px;
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+  width: 130px;
+}
+nav ul li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+/* Navbar styles in desktop */
+.categories-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 32px;
+  font-size: var(--medium);
+}
+.categories-list li {
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+/* Active category style*/
+.categories-list li:nth-child(1) {
+  border: 1px solid var(--hospital-green);
+}
+.categories-list li:nth-child(1) a {
+  color: var(--hospital-green);
+}
+/*  */
+
+.categories-list li a {
+  color: var(--very-light-pink);
+  text-decoration: none;
+}
+
+.navbar__left,
+.navbar__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__right a {
+  color: var(--dark);
+  font-size: var(--very-short);
+  text-decoration: none;
+}
+
+.menu-account {
+  margin-right: 24px;
+}
+.menu-account span:nth-child(1) {
+  padding-right: 4px;
+}
+.down-arrow {
+  width: 8px;
+  height: 8px;
+  content: url("../images/flechita.svg");
+  transform: rotate(90deg);
 }
 
 .main-container {
@@ -52,7 +114,7 @@ h1 {
   width: 100%;
   min-width: 300px;
   max-width: 450px;
-  margin-top: 120px;
+  margin-top: 80px;
   margin-bottom: 32px;
   padding-left: 8px;
   font-size: var(--large);
@@ -98,4 +160,38 @@ h1 {
   content: url("../images/flechita.svg");
   width: 8px;
   margin-left: 20px;
+}
+
+/* NavBar mobile to desktop styles */
+@media screen and (max-width: 1023px) {
+  .nav-element-hidden {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .menu-hidden {
+    display: none;
+  }
+  .navbar__left {
+    order: 2;
+  }
+  .navbar__right {
+    order: 3;
+  }
+
+  .logo {
+    width: 150px;
+    order: 1;
+  }
+  .categories-list {
+    order: 2;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .categories-list {
+    margin-left: 52px;
+  }
+  .categories-list li {
+    padding: 8px 16px;
+  }
 }

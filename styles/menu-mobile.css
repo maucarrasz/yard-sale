@@ -26,10 +26,13 @@ body {
 
 .menu-mobile {
   width: 100%;
+  min-width: 320px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  margin: 0 auto;
 }
 
 .menu-mobile ul {

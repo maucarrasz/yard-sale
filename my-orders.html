@@ -15,19 +15,47 @@
   </head>
   <body>
     <nav>
-      <ul>
-        <a href="./menu-mobile.html">
-          <img src="./images/icon_menu.svg" alt="Menu icon" />
-        </a>
-        <a href="./index.html">
-          <img src="./images/logo_yard_sale.svg" alt="Logo Yard Sale" />
-        </a>
-        <a href=".">
-          <img
-            src="./images/icon_shopping_cart_notification.svg"
-            alt="Shopping Cart icon"
-          />
-        </a>
+      <ul class="navbar-list" id="navbar-list">
+        <li class="menu-mobile menu-hidden" id="menu-mobile">
+          <a href="./menu-mobile.html">
+            <img src="./images/icon_menu.svg" alt="Menu icon" />
+          </a>
+        </li>
+        <div class="navbar__left">
+          <ul class="categories-list nav-element-hidden" id="categories-list">
+            <li><a href="#">All</a></li>
+            <li><a href="#">Clothes</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Furniture</a></li>
+            <li><a href="#">Toys</a></li>
+            <li><a href="#">Others</a></li>
+          </ul>
+          <li>
+            <a href=".">
+              <img
+                src="./images/logo_yard_sale.svg"
+                alt="Logo Yard Sale"
+                class="logo"
+              />
+            </a>
+          </li>
+        </div>
+        <div class="navbar__right">
+          <li class="menu-account nav-element-hidden" id="menu-account">
+            <a href="#">
+              <span>vmcarrasco2810@gmail.com</span>
+              <span class="down-arrow"></span>
+            </a>
+          </li>
+          <li class="shopping-cart">
+            <a href="./my-orders.html">
+              <img
+                src="./images/icon_shopping_cart_notification.svg"
+                alt="Shopping Cart icon"
+              />
+            </a>
+          </li>
+        </div>
       </ul>
     </nav>
     <div class="main-container">

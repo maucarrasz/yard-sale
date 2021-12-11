@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/my-account.css" />
+    <link rel="stylesheet" href="./styles/create-account.css" />
   </head>
   <body>
     <nav>
@@ -41,16 +41,13 @@
           </li>
         </div>
         <div class="navbar__right">
-          <li class="menu-account nav-element-hidden" id="menu-account">
-            <a href="#">
-              <span>vmcarrasco2810@gmail.com</span>
-              <span class="down-arrow"></span>
-            </a>
+          <li class="sign-in" id="sign-in">
+            <a href="./login.html">Sign in</a>
           </li>
-          <li class="shopping-cart">
+          <li class="shopping-cart nav-element-hidden">
             <a href="./my-orders.html">
               <img
-                src="./images/icon_shopping_cart_notification.svg"
+                src="./images/icon_shopping_cart.svg"
                 alt="Shopping Cart icon"
               />
             </a>
@@ -60,16 +57,33 @@
     </nav>
     <section class="login">
       <h1 class="title">My account</h1>
-      <form action="" class="login__form">
+      <form action="./index.html" class="login__form">
         <label for="name" class="login__label">Name</label>
-        <p class="value">Mauricio Carrasco</p>
+        <input
+          type="text"
+          class="login__input"
+          id="name"
+          autocomplete="name"
+          required
+        />
         <label for="email" class="login__label">Email address</label>
-        <p class="value">vmcarrasco2810@gmail.com</p>
+        <input
+          type="email"
+          class="login__input"
+          id="email"
+          autocomplete="email"
+          required
+        />
         <label for="password" class="login__label">Password</label>
-        <p class="value">**********</p>
-        <a href="./edit-account.html" class="button button__secondary">Edit</a>
+        <input
+          type="password"
+          class="login__input"
+          id="password"
+          autocomplete="new-password"
+          required
+        />
+        <input type="submit" class="button login__button" value="Create" />
       </form>
     </section>
-    <!-- <script src="./scripts/changeDataAccount.js"></script> -->
   </body>
 </html>
