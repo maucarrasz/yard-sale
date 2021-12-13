@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/login.css" />
+  </head>
+  <body>
+    <section class="login">
+      <figure class="logo">
+        <img
+          src="../images/logo_yard_sale.svg"
+          alt="Yard Sale Logo"
+          class="logo__img"
+        />
+      </figure>
+      <form action="../index.html" class="login__form" autocomplete="on">
+        <label for="email" class="login__label">Email address</label>
+        <input
+          type="email"
+          class="login__input"
+          id="email"
+          autocomplete="email"
+          required
+        />
+        <label for="password" class="login__label">Password</label>
+        <input
+          type="password"
+          class="login__input"
+          id="password"
+          autocomplete="current-password"
+          required
+        />
+        <input type="submit" class="button login__button" value="Login" />
+      </form>
+      <a href="./password-recovery.html" class="login__link">
+        Forgot my password
+      </a>
+      <a href="./create-account.html" class="button button__secondary">
+        Sign up
+      </a>
+    </section>
+  </body>
+</html>
