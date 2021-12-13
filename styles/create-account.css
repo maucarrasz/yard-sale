@@ -34,53 +34,44 @@ nav {
 }
 .navbar-list {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
-}
-
-.menu-hidden {
-  display: none;
 }
 
 .logo {
   width: 130px;
 }
+
 nav ul li {
   display: flex;
   align-items: center;
   list-style: none;
 }
 
-/* Navbar styles in desktop */
 .categories-list {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   margin-left: 32px;
   font-size: var(--medium);
 }
-.categories-list li {
+.categories-list li a {
   padding: 8px 12px;
   border: 1px solid transparent;
   border-radius: 10px;
-}
-
-/* Active category style*/
-.categories-list li:nth-child(1) {
-  border: 1px solid var(--hospital-green);
-}
-.categories-list li:nth-child(1) a {
-  color: var(--hospital-green);
-}
-/*  */
-
-.categories-list li a {
   color: var(--very-light-pink);
   text-decoration: none;
 }
+
+/* Active category style*/
+.categories-list li a:hover {
+  border-color: var(--hospital-green);
+  color: var(--hospital-green);
+}
+/*  */
 
 .navbar__left,
 .navbar__right {
@@ -88,26 +79,25 @@ nav ul li {
   justify-content: center;
   align-items: center;
 }
-.navbar__right a {
-  color: var(--dark);
-  font-size: var(--very-short);
-  text-decoration: none;
-}
 
 .sign-in {
+  display: none;
   margin-right: 24px;
+  font-size: var(--short);
 }
 .sign-in a {
   color: var(--hospital-green);
-  font-size: var(--very-short);
-  font-weight: bold;
   text-decoration: none;
+  font-weight: bold;
 }
-.down-arrow {
-  width: 8px;
-  height: 8px;
-  content: url("../images/flechita.svg");
-  transform: rotate(90deg);
+.shopping-icon {
+  width: 27px;
+  height: 28px;
+}
+
+/* Hover states */
+.sign-in a:hover {
+  text-decoration: underline;
 }
 
 .login {
@@ -118,7 +108,7 @@ nav ul li {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 0 12px;
+  padding: 0 20px;
   position: relative;
 }
 .title {
@@ -143,7 +133,7 @@ nav ul li {
 .login__input {
   height: 45px;
   margin-bottom: 20px;
-  padding: 0 12px;
+  padding: 0 16px;
   border: none;
   border-radius: 10px;
   background: var(--text-input-field);
@@ -173,24 +163,24 @@ nav ul li {
 }
 
 /* NavBar mobile to desktop styles */
-@media screen and (max-width: 1023px) {
-  .nav-element-hidden {
-    display: none;
-  }
-}
 @media screen and (min-width: 1024px) {
-  .navbar__left {
-    order: 2;
-  }
-  .navbar__right {
-    order: 3;
-  }
-
   .logo {
     width: 150px;
-    order: 1;
+  }
+  .menu-mobile {
+    display: none;
   }
   .categories-list {
+    display: flex;
+  }
+  .sign-in {
+    display: block;
+  }
+
+  .navbar__left {
+    order: 1;
+  }
+  .navbar__right {
     order: 2;
   }
 }
@@ -198,7 +188,7 @@ nav ul li {
   .categories-list {
     margin-left: 52px;
   }
-  .categories-list li {
+  .categories-list li a {
     padding: 8px 16px;
   }
 }

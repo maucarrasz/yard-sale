@@ -16,20 +16,12 @@
   <body>
     <nav>
       <ul class="navbar-list" id="navbar-list">
-        <li class="menu-mobile menu-hidden" id="menu-mobile">
+        <li class="menu-mobile" id="menu-mobile">
           <a href="./menu-mobile.html">
             <img src="./images/icon_menu.svg" alt="Menu icon" />
           </a>
         </li>
         <div class="navbar__left">
-          <ul class="categories-list nav-element-hidden" id="categories-list">
-            <li><a href="#">All</a></li>
-            <li><a href="#">Clothes</a></li>
-            <li><a href="#">Electronics</a></li>
-            <li><a href="#">Furniture</a></li>
-            <li><a href="#">Toys</a></li>
-            <li><a href="#">Others</a></li>
-          </ul>
           <li>
             <a href=".">
               <img
@@ -39,16 +31,25 @@
               />
             </a>
           </li>
+          <ul class="categories-list" id="categories-list">
+            <li><a href="#">All</a></li>
+            <li><a href="#">Clothes</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Furniture</a></li>
+            <li><a href="#">Toys</a></li>
+            <li><a href="#">Others</a></li>
+          </ul>
         </div>
         <div class="navbar__right">
-          <li class="sign-in" id="sign-in">
+          <li class="sign-in" id="menu-account">
             <a href="./login.html">Sign in</a>
           </li>
-          <li class="shopping-cart nav-element-hidden">
+          <li class="shopping-cart">
             <a href="./my-orders.html">
               <img
                 src="./images/icon_shopping_cart.svg"
                 alt="Shopping Cart icon"
+                class="shopping-icon"
               />
             </a>
           </li>

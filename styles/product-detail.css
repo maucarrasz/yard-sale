@@ -5,6 +5,8 @@
   --very-light-pink: #c7c7c7;
   --text-input-field: #f7f7f7;
   --hospital-green: #acd9b2;
+  --hyper-large: 2.6rem;
+  --super-large: 2.4rem;
   --very-large: 2rem;
   --large: 1.9rem;
   --medium: 1.7rem;
@@ -107,97 +109,13 @@ nav ul li {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  display: flex;
-  position: relative;
-}
-.cards-container {
-  --card-size: 140px;
-  width: 100%;
-  min-width: 320px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, var(--card-size));
-  place-content: center;
-  gap: 16px 24px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-.card {
-  width: --card-size;
-}
-.card__image-container {
-  display: inline-block;
-  position: relative;
-  width: --card-size;
-  height: --card-size;
-  margin-bottom: 8px;
-  cursor: pointer;
-}
-.card__image {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  object-fit: cover;
-}
-.center-text {
-  display: inline-block;
-  width: calc(var(--card-size) - 30px);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 4px 16px;
-  border-radius: 10px;
-  background: rgba(255, 237, 237, 0.794);
-  color: var(--dark);
-  font-size: var(--short);
-  font-weight: bold;
-  text-align: center;
-}
-.hidden {
-  display: none;
 }
 
-.card__additional {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.card__info {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--very-short);
-}
-.card__price {
-  color: var(--dark);
-  font-weight: bold;
-}
-.card__name {
-  color: grey;
-  font-weight: 500;
-}
-.card__shopping-icon {
-  width: 32px;
-  height: 32px;
-}
-
-/* Hover states */
-.card__shopping-icon:hover {
-  cursor: pointer;
-}
-.menu-account:hover {
-  cursor: pointer;
-}
-
-/* Product detail */
 .product-detail {
   width: 100%;
-  height: 100%;
-  min-height: calc(100vh - 60px);
-  position: absolute;
-  right: 0;
-  background: #fff;
+  height: calc(100vh - 60px);
   box-shadow: -1px -1px 5px -3px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  overflow-y: scroll;
 }
 
 .icon-close-container {
@@ -308,9 +226,31 @@ nav ul li {
 @media screen and (min-width: 680px) {
   .product-detail {
     max-width: 420px;
+    height: calc(100vh - 60px);
     margin: 0 0 0 auto;
     box-shadow: -1px -1px 5px -3px rgba(0, 0, 0, 0.2);
-    overflow: none;
+    overflow-y: scroll;
+  }
+  .product-detail::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+  }
+  /* background of the scrollbar except button or resizer */
+  .product-detail::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .product-detail::-webkit-scrollbar-track:hover {
+    background-color: #f4f4f4;
+  }
+  /* scrollbar itself */
+  .product-detail::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border: 2px solid #fff;
+    border-top: none;
+    border-radius: 4px;
+  }
+  .product-detail::-webkit-scrollbar-thumb:hover {
+    background-color: #a0a0a5;
   }
 
   .icon-close-container {
@@ -323,40 +263,6 @@ nav ul li {
     padding: 0 24px;
   }
 }
-/* End Product detail */
-
-@media screen and (max-width: 340px) {
-  .cards-container {
-    --card-size: 200px;
-    grid-template-columns: repeat(auto-fill, var(--card-size));
-  }
-  .center-text {
-    padding: 4px 36px;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .cards-container {
-    --card-size: 240px;
-    grid-template-columns: repeat(auto-fill, var(--card-size));
-    gap: 24px;
-    padding: 0 20px;
-  }
-  .card__info {
-    font-size: var(--short);
-  }
-  .card__shopping-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.2);
-  }
-  .center-text {
-    padding: 4px 36px;
-    font-size: var(--very-large);
-  }
-}
-
 /* NavBar mobile to desktop styles */
 @media screen and (min-width: 1024px) {
   .logo {
