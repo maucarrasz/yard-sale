@@ -70,6 +70,7 @@ body {
 
 .menu__sign-out {
   padding-top: 48px;
+  padding-bottom: 40px;
 }
 .menu__sign-out .sign-out {
   color: var(--hospital-green);

@@ -14,12 +14,54 @@
     <link rel="stylesheet" href="./styles/home.css" />
   </head>
   <body>
+    <div class="menu-mobile hidden">
+      <button>
+        <img
+          src="./images/icon_close.png"
+          alt="Close icon"
+          class="menu__close-icon"
+          id="menu-close-icon"
+        />
+      </button>
+      <ul>
+        <li class="menu__title">CATEGORIES</li>
+        <li class="menu__category">
+          <a href="#">All</a>
+        </li>
+        <li class="menu__category">
+          <a href="#">Clothes</a>
+        </li>
+        <li class="menu__category">
+          <a href="#">Electronics</a>
+        </li>
+        <li class="menu__category">
+          <a href="#">Furnitures</a>
+        </li>
+        <li class="menu__category">
+          <a href="#">Toys</a>
+        </li>
+        <li class="menu__category last-category">
+          <a href="#">Others</a>
+        </li>
+        <div class="menu__additional-container">
+          <li class="menu__additional">
+            <a href="./screens/my-orders.html">My orders</a>
+          </li>
+          <li>
+            <a href="./screens/my-account.html">My account</a>
+          </li>
+          <li class="menu__sign-out">
+            <a href="./screens/login.html" class="sign-out">Sign out</a>
+          </li>
+        </div>
+      </ul>
+    </div>
     <nav>
       <ul class="navbar-list" id="navbar-list">
-        <li class="menu-mobile" id="menu-mobile">
-          <a href="./screens/menu-mobile.html">
+        <li class="menu-icon" id="menu-icon">
+          <div href="./screens/menu-mobile.html">
             <img src="./images/icon_menu.svg" alt="Menu icon" />
-          </a>
+          </div>
         </li>
         <div class="navbar__left">
           <li>
@@ -59,7 +101,7 @@
         </div>
       </ul>
     </nav>
-    <section class="main-container">
+    <section class="main-container" id="main-container">
       <!-- Product detail -->
       <section class="product-detail hidden">
         <figure class="product-image-container">
@@ -352,6 +394,8 @@
       </div>
     </section>
     <script src="./scripts/productsInHome.js"></script>
-    <script src="../scripts/addRemoveProductInCart.js"></script>
+    <script src="./scripts/addRemoveProductInCart.js"></script>
+    <script src="./scripts/menuMobile.js"></script>
+
   </body>
 </html>

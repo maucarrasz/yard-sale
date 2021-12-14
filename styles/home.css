@@ -50,6 +50,10 @@ nav ul li {
   list-style: none;
 }
 
+.menu-icon {
+  cursor: pointer;
+}
+
 /* Navbar styles in desktop */
 .categories-list {
   display: none;
@@ -277,7 +281,7 @@ nav ul li {
   font-weight: 500;
   text-decoration: none;
 }
-.button__primary {
+.product-info .button__primary {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -326,9 +330,11 @@ nav ul li {
 
 .cart-container {
   width: 100%;
-  max-width: 450px;
-  display: grid;
-  place-items: center;
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   right: 0;
   margin: 0 auto;
@@ -457,12 +463,12 @@ nav ul li {
   text-decoration: none;
   cursor: pointer;
 }
-.button__primary {
+.cart-container .button__primary {
   width: calc(100% - 32px);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  margin: 40px auto 20px;
   background: var(--hospital-green);
   color: var(--white);
   font-weight: bold;
@@ -475,8 +481,6 @@ nav ul li {
 
 @media screen and (min-width: 680px) {
   .cart-container {
-    display: flex;
-    flex-direction: column;
     max-width: 420px;
     height: 100%;
     margin: auto 0 auto auto;
@@ -513,6 +517,79 @@ nav ul li {
 }
 
 /* END SHOPPING CART */
+
+/* MENU MOBILE STYLES */
+
+.menu-mobile {
+  width: 100%;
+  min-width: 320px;
+  max-width: 450px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 auto;
+  background: var(--white);
+  position: absolute;
+  z-index: 2;
+}
+
+.menu-mobile ul {
+  margin: 40px;
+  font-size: var(--medium);
+  font-weight: bold;
+}
+.menu-mobile ul li {
+  list-style: none;
+}
+.menu-mobile ul li a {
+  display: inline-block;
+  width: 100%;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.menu__title {
+  padding: 20px 0;
+}
+.menu__category {
+  padding: 18px 0;
+}
+.last-category {
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(199, 199, 199, 0.3);
+}
+
+.menu__additional-container {
+  padding-top: 44px;
+}
+.menu__additional {
+  padding-bottom: 36px;
+}
+
+.menu__sign-out {
+  padding-top: 48px;
+  padding-bottom: 40px;
+}
+.menu__sign-out .sign-out {
+  color: var(--hospital-green);
+  font-size: var(--short);
+}
+
+.menu__close-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Hover states */
+.menu-mobile a:hover {
+  text-decoration: underline;
+}
+
+/* END MENU MOBILE STYLES */
 
 .hidden {
   display: none;
@@ -555,7 +632,7 @@ nav ul li {
   .logo {
     width: 150px;
   }
-  .menu-mobile {
+  .menu-icon {
     display: none;
   }
   .categories-list {
