@@ -88,7 +88,7 @@
             Anime One Piece, Tony Tony Chopper Halloween edition, One Piece
             collectible action figure.
           </p>
-          <a href="./screens/shopping-cart.html" class="button button__primary">
+          <button class="button button__primary" id="button-add-to-cart">
             <svg
               class="shopping-icon"
               width="40"
@@ -110,10 +110,34 @@
               />
             </svg>
             Add to cart
-          </a>
+          </but>
         </div>
       </section>
       <!-- -->
+      <!-- Shopping Cart -->
+      <section class="cart-container hidden">
+        <h1 class="title">
+          <span class="left-arrow"></span>
+          Shopping Cart
+        </h1>
+        <section class="orders-container">
+          <div class="order">
+            <figure>
+              <img
+                src="../images/chopper-figure.png"
+                alt="Chopper's toy"
+                class="order__image"
+              />
+            </figure>
+            <p class="order__name info">Chopper's toy</p>
+            <p class="order__price price">$ 120,00</p>
+            <p class="removed-text hidden">REMOVED FROM CART</p>
+            <span class="close-icon"></span>
+          </div>
+          <a href="./screens/my-order.html" class="button button__primary">Checkout</a>
+        </section>
+      </section>
+      <!--  -->
       <div class="cards-container">
         <div class="card">
           <div class="card__image-container">
@@ -328,5 +352,6 @@
       </div>
     </section>
     <script src="./scripts/productsInHome.js"></script>
+    <script src="../scripts/addRemoveProductInCart.js"></script>
   </body>
 </html>
