@@ -1,4 +1,5 @@
 let cards = document.querySelectorAll(".card"),
+  cardsContainer = document.getElementById("cards-container"),
   productDetail = document.querySelector(".product-detail"),
   closeIconProductDetail = productDetail.querySelector(".icon-close-container"),
   shoppingCart = document.querySelector(".cart-container"),
@@ -13,7 +14,7 @@ cards.forEach(e => {
   cardImage.addEventListener("click", productDetailAppear);
 });
 
-closeIconProductDetail.addEventListener("click", closeProductDetail);
+closeIconProductDetail.addEventListener("click", productDetailClose);
 
 function changeShoppingStatus() {
   console.log(this);
@@ -42,23 +43,31 @@ function productDetailAppear() {
   } else {
     productDetail.classList.add("hidden");
   }
+  // Borrar al agregar funcionalidad completa
+  if (window.innerWidth < 900) {
+    cardsContainer.classList.add("hidden");
+  }
+  //
 }
-
-function closeProductDetail() {
+function productDetailClose() {
   productDetail.classList.add("hidden");
 }
 
 let buttonAddToCart = document.getElementById("button-add-to-cart");
 buttonAddToCart.addEventListener("click", shoppingCartAppear);
-leftArrowShoppingCart.addEventListener("click", closeShoppingCart);
+leftArrowShoppingCart.addEventListener("click", shoppingCartClose);
 
 function shoppingCartAppear() {
   console.log(this);
   if (shoppingCart.classList.contains("hidden")) {
     shoppingCart.classList.remove("hidden");
   }
+  // Borrar al agregar funcionalidad completa
+  if (window.innerWidth < 900) {
+    cardsContainer.classList.add("hidden");
+  }
+  //
 }
-
-function closeShoppingCart() {
+function shoppingCartClose() {
   shoppingCart.classList.add("hidden");
 }
