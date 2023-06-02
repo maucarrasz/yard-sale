@@ -3,6 +3,8 @@ productsList.push({
   name: "Luffy 5th gear figure",
   price: 120,
   imgSrc: "../images/luffy_toy_2.jpg",
+  description:
+    "Anime One Piece, Luffy 5th gear edition, One Piece collectible action figure.",
 });
 productsList.push({
   name: "Vans Black White",

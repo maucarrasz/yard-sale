@@ -7,19 +7,25 @@ const menuShoppingIcon = document.querySelector(".shopping-cart");
 const asideShoppingCart = document.querySelector(".cart-container");
 const asideCartCloseBtn = document.querySelector(".cart-container .left-arrow");
 const productDetail = document.querySelector(".product-detail");
-// const productCards = document.querySelectorAll(".card");
+const productDetailCloseBtn = document.querySelector(".icon-close-container");
 
 menuAccount.addEventListener("click", menuToggleDesktop);
 mobileMenuBtn.addEventListener("click", menuToggleMobile);
 menuMobileCloseBtn.addEventListener("click", menuToggleMobile);
 menuShoppingIcon.addEventListener("click", shoppingCartToggle);
 asideCartCloseBtn.addEventListener("click", shoppingCartToggle);
+productDetailCloseBtn.addEventListener("click", closeProductDetail);
 
 function menuToggleDesktop() {
   const isAsideShoppingCartOpen =
     !asideShoppingCart.classList.contains("hidden");
+  const isProductDetailOpen = !productDetail.classList.contains("hidden");
+
   if (isAsideShoppingCartOpen) {
     asideShoppingCart.classList.add("hidden");
+  }
+  if (isProductDetailOpen) {
+    productDetail.classList.add("hidden");
   }
 
   desktopMenu.classList.toggle("hidden");
@@ -27,38 +33,45 @@ function menuToggleDesktop() {
 function menuToggleMobile() {
   const isAsideShoppingCartOpen =
     !asideShoppingCart.classList.contains("hidden");
+  const isProductDetailOpen = !productDetail.classList.contains("hidden");
   if (isAsideShoppingCartOpen) {
     asideShoppingCart.classList.add("hidden");
+  }
+  if (isProductDetailOpen) {
+    productDetail.classList.add("hidden");
   }
 
   mobileMenu.classList.toggle("hidden");
 }
 function shoppingCartToggle() {
   const isDesktopMenuOpen = !desktopMenu.classList.contains("hidden");
+  const isProductDetailOpen = !productDetail.classList.contains("hidden");
+
   if (isDesktopMenuOpen) {
     desktopMenu.classList.add("hidden");
+  }
+  if (isProductDetailOpen) {
+    productDetail.classList.add("hidden");
   }
 
   asideShoppingCart.classList.toggle("hidden");
 }
+function openProductDetail() {
+  const isAsideShoppingCartOpen =
+    !asideShoppingCart.classList.contains("hidden");
+  const isMenuDesktopOpen = !desktopMenu.classList.contains("hidden");
 
-// cards = Array.from(productCards);
-// cards.forEach(e => {
-//   const shoppingIcon = e.querySelector(".card__shopping-icon");
-//   shoppingIcon.addEventListener("click", toggleProductToCart);
-// });
-// function toggleProductToCart() {
-//   const card = this.parentNode.parentNode;
-//   const removedText = card.querySelector(".removed-text");
-//   const cartImg = this.src;
-//   if (cartImg.indexOf("bt_add_to_cart.svg") != -1) {
-//     this.src = "./images/bt_added_to_cart.svg";
-//   } else {
-//     this.src = "./images/bt_add_to_cart.svg";
-//   }
-//   removedText.classList.toggle("hidden");
-// }
-
+  if (isAsideShoppingCartOpen) {
+    asideShoppingCart.classList.add("hidden");
+  }
+  if (isMenuDesktopOpen) {
+    desktopMenu.classList.add("hidden");
+  }
+  productDetail.classList.remove("hidden");
+}
+function closeProductDetail() {
+  productDetail.classList.add("hidden");
+}
 function formatNumberToCurrency(number) {
   const isDecimal = !Number.isInteger(number);
   let decimalPart = "";
@@ -77,6 +90,7 @@ function formatNumberToCurrency(number) {
 
   return result;
 }
+
 function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement("div");
@@ -94,6 +108,7 @@ function renderProducts(arr) {
     imageCard.setAttribute("src", product.imgSrc);
     imageCard.setAttribute("alt", product.name);
     imageCard.classList.add("card__image");
+    imageCard.addEventListener("click", openProductDetail);
 
     removedTextDiv.classList.add("removed-text", "hidden");
     removedTextDiv.textContent = "Removed from cart";
@@ -145,3 +160,15 @@ window.addEventListener("resize", function () {
     desktopMenu.classList.add("hidden");
   }
 });
+
+// function toggleProductToCart() {
+//   const card = this.parentNode.parentNode;
+//   const removedText = card.querySelector(".removed-text");
+//   const cartImg = this.src;
+//   if (cartImg.indexOf("bt_add_to_cart.svg") != -1) {
+//     this.src = "./images/bt_added_to_cart.svg";
+//   } else {
+//     this.src = "./images/bt_add_to_cart.svg";
+//   }
+//   removedText.classList.toggle("hidden");
+// }
