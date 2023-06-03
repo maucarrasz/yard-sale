@@ -177,7 +177,7 @@ function addProductToCartFromBtnIcon() {
   };
   const addedText = product.querySelector(".added-text");
   const btnIcon = this;
-  toggleImageSrcTemporarily(btnIcon, "../images/bt_added_to_cart.svg", 1500);
+  toggleImageSrcTemporarily(btnIcon, "./images/bt_added_to_cart.svg", 1500);
   showElementTemporarily(addedText, 1500);
   addProductToCart(dataProductCart);
 }
