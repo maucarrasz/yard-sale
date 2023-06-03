@@ -56,7 +56,7 @@
         </div>
       </ul>
     </nav>
-    <nav>
+    <nav class="navbar">
       <ul class="navbar-list" id="navbar-list">
         <li class="menu-icon" id="menu-icon">
           <div href="./screens/menu-mobile.html">
@@ -84,25 +84,34 @@
         </div>
         <div class="navbar__right">
           <li class="menu-account" id="menu-account">
-            <a href="#">
-              <span>vmcarrasco2810@gmail.com</span>
-              <span class="down-arrow"></span>
-            </a>
+            <span>vmcarrasco2810@gmail.com</span>
+            <span class="down-arrow"></span>
           </li>
           <li class="shopping-cart">
-            <a href="./screens/my-orders.html">
-              <img
-                src="./images/icon_shopping_cart_notification.svg"
-                alt="Shopping Cart icon"
-                class="shopping-icon"
-              />
-            </a>
+            <img
+              src="./images/icon_shopping_cart_notification.svg"
+              alt="Shopping Cart icon"
+              class="shopping-icon"
+            />
           </li>
+        </div>
+        <div class="desktop-menu hidden">
+          <ul>
+            <li class="opt">
+              <a href="./screens/my-orders.html">My orders</a>
+            </li>
+            <li class="opt opt2">
+              <a href="./screens/my-account.html">My account</a>
+            </li>
+            <li class="opt opt3">
+              <a href="./screens/login.html">Sign out</a>
+            </li>
+          </ul>
         </div>
       </ul>
     </nav>
     <main class="main-container" id="main-container">
-      <section class="product-detail hidden">
+      <aside class="product-detail hidden">
         <figure class="product-image-container">
           <div class="icon-close-container">
             <img
@@ -111,11 +120,7 @@
               class="icon-close"
             />
           </div>
-          <img
-            src="./images/chopper-figure.webp"
-            alt="Chopper's toy | One Piece"
-            class="product__image"
-          />
+          <img src="" alt="" class="product__image" />
         </figure>
         <ul class="points">
           <li class="active"></li>
@@ -123,12 +128,9 @@
           <li></li>
         </ul>
         <div class="product-info">
-          <span class="product-info__price">$ 120,00</span
-          ><span class="product-info__name">Chopper's Toys</span>
-          <p class="product-info__description">
-            Anime One Piece, Tony Tony Chopper Halloween edition, One Piece
-            collectible action figure.
-          </p>
+          <span class="product-info__price"></span
+          ><span class="product-info__name"></span>
+          <p class="product-info__description"></p>
           <button class="button button__primary" id="button-add-to-cart">
             <svg
               class="shopping-icon"
@@ -153,14 +155,14 @@
             Add to cart
           </button>
         </div>
-      </section>
-      <section class="cart-container hidden">
-        <h1 class="title">
+      </aside>
+      <aside class="cart-container hidden">
+        <h1 class="cart__title">
           <span class="left-arrow"></span>
           Shopping Cart
         </h1>
         <section class="orders-container">
-          <div class="order">
+          <!-- <div class="order">
             <figure>
               <img
                 src="./images/chopper-figure.webp"
@@ -170,23 +172,27 @@
             </figure>
             <p class="order__name info">Chopper's toy</p>
             <p class="order__price price">$ 120,00</p>
-            <p class="removed-text hidden">REMOVED FROM CART</p>
+            <p class="removed-text-cart hidden">REMOVED FROM CART</p>
             <span class="close-icon"></span>
-          </div>
-          <a href="./screens/my-order.html" class="button button__primary"
-            >Checkout</a
+          </div> -->
+          <a
+            href="./screens/my-order.html"
+            class="button button__primary"
+            id="checkout-btn"
           >
+            Checkout
+          </a>
         </section>
-      </section>
+      </aside>
       <div class="cards-container" id="cards-container">
-        <div class="card">
+        <!-- <div class="card">
           <div class="card__image-container">
             <img
               src="./images/luffy_toy_2.jpg"
-              alt="Chopper's toy"
+              alt="Luffy's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </div>
           <div class="card__additional">
             <div class="card__info">
@@ -204,10 +210,10 @@
           <figure class="card__image-container">
             <img
               src="./images/zapatillas_negras.jpg"
-              alt="Chopper's toy"
+              alt="Zapatillas negras"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -228,7 +234,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -249,7 +255,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -270,7 +276,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -291,7 +297,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -312,7 +318,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -333,7 +339,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -354,7 +360,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -375,7 +381,7 @@
               alt="Chopper's toy"
               class="card__image"
             />
-            <div class="center-text hidden">Removed from cart</div>
+            <div class="removed-text hidden">Removed from cart</div>
           </figure>
           <div class="card__additional">
             <div class="card__info">
@@ -388,11 +394,10 @@
               class="card__shopping-icon"
             />
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
-    <script src="./scripts/productsInHome.js"></script>
-    <script src="./scripts/addRemoveProductInCart.js"></script>
-    <script src="./scripts/menuMobile.js"></script>
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/main.js"></script>
   </body>
 </html>

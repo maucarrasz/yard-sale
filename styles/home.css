@@ -20,23 +20,30 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: "Quicksand", sans-serif;
+  position: relative;
   width: 100%;
+  height: 100%;
   background: var(--white);
+  font-family: "Quicksand", sans-serif;
 }
 
-nav {
+.navbar {
+  --navbar-height: 60px;
+  --navbar-ul-padding: 20px;
+  --margin-account-right: 24px;
+  --width-shopping-icon: 27px;
   width: 100%;
-  height: 60px;
+  height: var(--navbar-height);
   display: flex;
   align-items: center;
   box-shadow: 0px 2px 5px -3px rgba(0, 0, 0, 0.2);
 }
 .navbar-list {
+  position: relative;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--navbar-ul-padding);
   display: flex;
   justify-content: space-between;
 }
@@ -56,7 +63,7 @@ nav ul li {
 
 /* Navbar styles in desktop */
 .categories-list {
-  display: none;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 32px;
@@ -83,17 +90,14 @@ nav ul li {
   justify-content: center;
   align-items: center;
 }
-.navbar__right a {
-  color: var(--dark);
-  font-size: var(--very-short);
-  text-decoration: none;
-}
 
 .menu-account {
-  display: none;
-  margin-right: 24px;
+  display: block;
+  margin-right: var(--margin-account-right);
 }
 .menu-account span:nth-child(1) {
+  color: var(--dark);
+  font-size: var(--very-short);
   padding-right: 4px;
 }
 .down-arrow {
@@ -102,9 +106,64 @@ nav ul li {
   content: url("../images/flechita.svg");
   transform: rotate(90deg);
 }
+
+.shopping-cart:hover {
+  cursor: pointer;
+}
 .shopping-icon {
-  width: 27px;
+  width: var(--width-shopping-icon);
   height: 28px;
+}
+
+.desktop-menu {
+  position: absolute;
+  right: calc(
+    var(--navbar-ul-padding) + var(--width-shopping-icon) +
+      var(--margin-account-right)
+  );
+  top: calc(
+    var(--navbar-height) - 10px
+  ); /* 10px: El height sobrante entre el navbar-list y el navbar */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--white);
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.desktop-menu ul {
+  margin: 24px 20px 0px;
+}
+.opt {
+  padding-bottom: 32px;
+  padding-left: 24px;
+  padding-right: 8px;
+  font-size: var(--medium);
+  font-weight: bold;
+  list-style: none;
+  text-align: right;
+}
+
+.opt2 {
+  border-bottom: 1px solid rgba(199, 199, 199, 0.5);
+}
+.opt3 {
+  padding-top: 20px;
+  padding-bottom: 28px;
+}
+
+.opt a {
+  color: var(--dark);
+  text-decoration: none;
+}
+.opt3 a {
+  color: var(--hospital-green);
+  font-size: calc(var(--very-short) + 1px);
+}
+
+/* Hover states */
+.opt a:hover {
+  text-decoration: underline;
 }
 
 .main-container {
@@ -126,13 +185,13 @@ nav ul li {
   margin-bottom: 40px;
 }
 .card {
-  width: --card-size;
+  width: var(--card-size);
 }
 .card__image-container {
   display: inline-block;
   position: relative;
-  width: --card-size;
-  height: --card-size;
+  width: var(--card-size);
+  height: var(--card-size);
   margin-bottom: 8px;
   cursor: pointer;
 }
@@ -142,14 +201,14 @@ nav ul li {
   border-radius: 20px;
   object-fit: cover;
 }
-.center-text {
+.added-text {
   display: inline-block;
   width: calc(var(--card-size) - 30px);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 4px 16px;
+  padding: 8px 16px;
   border-radius: 10px;
   background: rgba(255, 237, 237, 0.794);
   color: var(--dark);
@@ -340,7 +399,7 @@ nav ul li {
   z-index: 1;
 }
 
-.title {
+.cart__title {
   width: 100%;
   min-width: 300px;
   max-width: 450px;
@@ -413,7 +472,7 @@ nav ul li {
   cursor: pointer;
 }
 
-.removed-text {
+.removed-text-cart {
   display: flex;
   align-items: center;
   margin-left: 16px;
@@ -480,7 +539,7 @@ nav ul li {
     max-width: 420px;
     right: 0;
   }
-  .title {
+  .cart__title {
     margin-top: 24px;
   }
   .left-arrow {
@@ -499,7 +558,7 @@ nav ul li {
   .order__price {
     font-size: var(--medium);
   }
-  .removed-text {
+  .removed-text-cart {
     justify-content: center;
     margin: 0;
   }
@@ -519,9 +578,6 @@ nav ul li {
   width: 100%;
   min-width: 320px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   margin: 0 auto;
   background: var(--white);
   position: absolute;
@@ -586,17 +642,14 @@ nav ul li {
 
 /* END MENU MOBILE STYLES */
 
-.hidden {
-  display: none;
-}
-
 @media screen and (max-width: 340px) {
   .cards-container {
     --card-size: 200px;
     grid-template-columns: repeat(auto-fill, var(--card-size));
   }
-  .center-text {
-    padding: 4px 36px;
+  .added-text {
+    padding: 8px 16px;
+    font-size: var(--short);
   }
 }
 
@@ -616,35 +669,37 @@ nav ul li {
     border-radius: 50%;
     box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.2);
   }
-  .center-text {
-    padding: 4px 36px;
-    font-size: var(--very-large);
+  .added-text {
+    padding: 18px 36px;
+    font-size: var(--large);
   }
 }
 
 /* NavBar mobile to desktop styles */
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
+  .menu-mobile {
+    display: block;
+  }
+  .desktop-menu {
+    display: none;
+  }
+  .categories-list {
+    display: none;
+  }
+  .menu-account {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
   .menu-mobile {
     display: none;
   }
   .logo {
-    width: 150px;
+    scale: 1.1;
   }
   .menu-icon {
     display: none;
-  }
-  .categories-list {
-    display: flex;
-  }
-  .menu-account {
-    display: block;
-  }
-
-  .navbar__left {
-    order: 1;
-  }
-  .navbar__right {
-    order: 2;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -654,4 +709,8 @@ nav ul li {
   .categories-list li a {
     padding: 8px 16px;
   }
+}
+
+.hidden {
+  display: none;
 }
