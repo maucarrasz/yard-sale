@@ -3,13 +3,15 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenuBtn = document.querySelector(".menu-icon");
 const mobileMenu = document.querySelector(".menu-mobile");
 const menuMobileCloseBtn = document.querySelector(".menu__close-icon");
-const menuShoppingIcon = document.querySelector(".shopping-cart");
+const menuShoppingIcon = document.querySelector(".navbar__shopping-cart");
+const orderCounter = document.getElementById("order-counter");
 const asideShoppingCart = document.querySelector(".cart-container");
 const asideCartCloseBtn = document.querySelector(".cart-container .left-arrow");
 const productDetail = document.querySelector(".product-detail");
 const productDetailCloseBtn = document.querySelector(".icon-close-container");
 const ordersCartContainer = document.querySelector(".orders-container");
 const addToCartBtn = document.getElementById("button-add-to-cart");
+const totalOrderPrice = document.getElementById("total-order");
 
 menuAccount.addEventListener("click", menuToggleDesktop);
 mobileMenuBtn.addEventListener("click", menuToggleMobile);
@@ -27,16 +29,23 @@ function formatNumberToCurrency(number) {
     decimalPart = Math.floor((number % 1) * 100).toString();
   }
 
-  let result = "$ " + Math.floor(number).toString();
+  let currencyString = "$ " + Math.floor(number).toString();
 
   if (isDecimal) {
-    result += "," + decimalPart;
+    currencyString += "," + decimalPart;
   } else {
-    result += ",00";
+    currencyString += ",00";
   }
 
-  return result;
+  return currencyString;
 }
+function formatCurrencyToNumber(currencyString) {
+  const numberWithoutSymbol = currencyString.replace("$", "").replace(",", ".");
+  const number = parseFloat(numberWithoutSymbol);
+
+  return number;
+}
+
 function changeOrderId(id, identifier) {
   const slices = id.split("$");
   slices.pop();
@@ -116,7 +125,7 @@ function addProductToCartFromAsideDetail() {
   hideElement(productDetail);
   setTimeout(function () {
     showElement(asideShoppingCart);
-  }, 1000);
+  }, 750);
 }
 
 function updateProductDetail(data) {
@@ -128,7 +137,7 @@ function updateProductDetail(data) {
   name.textContent = data.name;
   price.textContent = data.price;
 }
-function openProductDetail() {
+function toggleProductDetail() {
   const card = this.parentNode.parentNode;
   const dataProductDetail = {
     imgSrc: card.querySelector(".card__image").src,
@@ -136,8 +145,6 @@ function openProductDetail() {
     name: card.querySelector(".card__name").textContent,
     orderId: changeOrderId(card.getAttribute("id"), "detail"),
   };
-  updateProductDetail(dataProductDetail);
-
   const isAsideShoppingCartOpen =
     !asideShoppingCart.classList.contains("hidden");
   const isMenuDesktopOpen = !desktopMenu.classList.contains("hidden");
@@ -149,7 +156,14 @@ function openProductDetail() {
     desktopMenu.classList.add("hidden");
   }
 
-  setTimeout(showElement(productDetail), 500);
+  if (productDetail.classList.contains("hidden")) {
+    // Actualizar y mostrar aside
+    updateProductDetail(dataProductDetail);
+    setTimeout(showElement(productDetail), 500);
+  } else {
+    // quitar id del aside y ocultar aside
+    closeProductDetail();
+  }
 }
 function closeProductDetail() {
   productDetail.setAttribute("id", "");
@@ -183,7 +197,7 @@ function addProductToCartFromBtnIcon() {
 }
 
 function addProductToCart(data) {
-  const checkoutBtn = asideShoppingCart.querySelector("#checkout-btn");
+  const ordersResume = asideShoppingCart.querySelector("#orders-resume");
   const newOrder = document.createElement("div");
   const productName = data.name;
   const productPrice = data.price;
@@ -229,23 +243,25 @@ function addProductToCart(data) {
   newOrder.appendChild(removedTextOrder);
   newOrder.appendChild(closeIconOrder);
 
+  // Añadir precio del elemento al resumen del total
+  addPriceProductToTotalOrder(data.price);
+
+  // Actualizar contador de productos a +1
+  addOneProductToCounter();
+
   // Agregar el nuevo elemento al documento
-  ordersCartContainer.insertBefore(newOrder, checkoutBtn);
-}
-function removeProductFromCartById(orderId) {
-  const deletedOrder = document.getElementById(`${orderId}`);
-  const parentNode = deletedOrder.parentNode;
-  parentNode.removeChild(deletedOrder);
+  ordersCartContainer.insertBefore(newOrder, ordersResume);
 }
 function removeProductFromCart() {
   const order = this.parentNode;
   const orderContainer = order.parentNode;
   const removedTextCart = order.querySelector(".removed-text-cart");
-  const orderName = order.querySelector(".order__name");
-  const orderPrice = order.querySelector(".order__price");
+  const orderNameDiv = order.querySelector(".order__name");
+  const orderPriceDiv = order.querySelector(".order__price");
+  const orderPriceString = orderPriceDiv.textContent;
   if (removedTextCart.classList.contains("hidden")) {
-    order.removeChild(orderName);
-    order.removeChild(orderPrice);
+    order.removeChild(orderNameDiv);
+    order.removeChild(orderPriceDiv);
     order.classList.add("remove-order");
     showElement(removedTextCart);
     removedTextCart.style.marginLeft = "16px";
@@ -253,7 +269,36 @@ function removeProductFromCart() {
   setTimeout(function () {
     const cartOrderId = order.getAttribute("id");
     orderContainer.removeChild(order);
-  }, 1000);
+
+    // Quitar precio del productos al total del order
+    removePriceProductToTotalOrder(orderPriceString);
+    // Restar 1 al total del contador de pedidos
+    removeOneProductFromCounter();
+  }, 750);
+}
+// function removeProductFromCartById(orderId) {
+//   const deletedOrder = document.getElementById(`${orderId}`);
+//   const parentNode = deletedOrder.parentNode;
+//   parentNode.removeChild(deletedOrder);
+// }
+
+function addPriceProductToTotalOrder(stringPrice) {
+  const newPrice = formatCurrencyToNumber(stringPrice);
+  const total = formatCurrencyToNumber(totalOrderPrice.textContent) + newPrice;
+  totalOrderPrice.textContent = formatNumberToCurrency(total);
+}
+function removePriceProductToTotalOrder(stringPrice) {
+  const newPrice = formatCurrencyToNumber(stringPrice);
+  const total = formatCurrencyToNumber(totalOrderPrice.textContent) - newPrice;
+  totalOrderPrice.textContent = formatNumberToCurrency(total);
+}
+function addOneProductToCounter() {
+  const orderNumber = Number(orderCounter.textContent) + 1;
+  orderCounter.textContent = "" + orderNumber;
+}
+function removeOneProductFromCounter() {
+  const orderNumber = Number(orderCounter.textContent) - 1;
+  orderCounter.textContent = "" + orderNumber;
 }
 
 function renderProducts(arr) {
@@ -273,7 +318,7 @@ function renderProducts(arr) {
     imageCard.setAttribute("src", product.imgSrc);
     imageCard.setAttribute("alt", product.name);
     imageCard.classList.add("card__image");
-    imageCard.addEventListener("click", openProductDetail);
+    imageCard.addEventListener("click", toggleProductDetail);
 
     addedTextDiv.classList.add("added-text", "hidden");
     addedTextDiv.textContent = "Added to cart";

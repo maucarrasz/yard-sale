@@ -106,11 +106,25 @@ nav ul li {
   content: url("../images/flechita.svg");
   transform: rotate(90deg);
 }
-
-.shopping-cart:hover {
+.navbar__shopping-cart {
+  position: relative;
   cursor: pointer;
 }
-.shopping-icon {
+.navbar__shopping-cart div {
+  width: 16px;
+  height: 16px;
+  background-color: var(--hospital-green);
+  border-radius: 50%;
+  font-size: var(--very-short);
+  font-weight: bold;
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__shopping-icon {
   width: var(--width-shopping-icon);
   height: 28px;
 }
@@ -482,7 +496,27 @@ nav ul li {
   text-align: center;
 }
 
-.general-info {
+.orders-resume {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--text-input-field);
+  margin: 16px 16px 0;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+
+.orders-resume p {
+  font-size: var(--medium);
+  font-weight: bold;
+  padding: 20px 0;
+}
+.orders-resume p:nth-child(2) {
+  text-align: right;
+}
+
+/* .general-info {
   width: calc(100% - 32px);
   min-width: 300px;
   max-width: 450px;
@@ -505,7 +539,7 @@ nav ul li {
   flex-direction: column;
   justify-content: center;
   color: var(--black);
-}
+} */
 
 .button {
   display: inline-block;
@@ -523,7 +557,7 @@ nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px auto 20px;
+  margin: 28px auto 20px;
   background: var(--hospital-green);
   color: var(--white);
   font-weight: bold;
@@ -536,7 +570,7 @@ nav ul li {
 
 @media screen and (min-width: 900px) {
   .cart-container {
-    max-width: 420px;
+    max-width: 360px;
     right: 0;
   }
   .cart__title {

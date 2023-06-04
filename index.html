@@ -87,12 +87,13 @@
             <span>vmcarrasco2810@gmail.com</span>
             <span class="down-arrow"></span>
           </li>
-          <li class="shopping-cart">
+          <li class="navbar__shopping-cart">
             <img
-              src="./images/icon_shopping_cart_notification.svg"
+              src="./images/icon_shopping_cart.svg"
               alt="Shopping Cart icon"
-              class="shopping-icon"
+              class="navbar__shopping-icon"
             />
+            <div id="order-counter">0</div>
           </li>
         </div>
         <div class="desktop-menu hidden">
@@ -159,7 +160,7 @@
       <aside class="cart-container hidden">
         <h1 class="cart__title">
           <span class="left-arrow"></span>
-          Shopping Cart
+          My order
         </h1>
         <section class="orders-container">
           <!-- <div class="order">
@@ -175,6 +176,10 @@
             <p class="removed-text-cart hidden">REMOVED FROM CART</p>
             <span class="close-icon"></span>
           </div> -->
+          <div class="orders-resume" id="orders-resume">
+            <p><span>Total</span></p>
+            <p id="total-order">$ 0,00</p>
+          </div>
           <a
             href="./screens/my-order.html"
             class="button button__primary"
