@@ -325,7 +325,7 @@ nav ul li {
   display: flex;
   flex-direction: column;
   padding: 0 20px;
-  font-size: var(--large);
+  font-size: calc(var(--medium) + 1px);
 }
 .product-info__price {
   margin-bottom: 4px;
@@ -378,22 +378,8 @@ nav ul li {
 }
 
 /* Product detail in tablet and desktop css */
-@media screen and (min-width: 900px) {
-  .product-detail {
-    max-width: 420px;
-    right: 0;
-  }
-
-  .icon-close-container {
-    display: grid;
-  }
-  .product-image-container {
-    height: 380px;
-  }
-  .product-info {
-    padding: 0 24px;
-  }
-}
+/* @media screen and (min-width: 900px) {
+} */
 /* End Product detail */
 
 /* SHOPPING CART */
@@ -569,6 +555,21 @@ nav ul li {
 }
 
 @media screen and (min-width: 900px) {
+  .product-detail {
+    max-width: 360px;
+    right: 0;
+  }
+
+  .icon-close-container {
+    display: grid;
+  }
+  .product-image-container {
+    height: 360px;
+  }
+  .product-info {
+    padding: 0 24px;
+  }
+
   .cart-container {
     max-width: 360px;
     right: 0;
