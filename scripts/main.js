@@ -255,7 +255,7 @@ function addProductToCart(data) {
   addOneProductToCounter();
 
   // Agregar el nuevo elemento al documento
-  ordersCartContainer.insertBefore(newOrder, ordersResume);
+  ordersCartContainer.append(newOrder);
 }
 function removeProductFromCart() {
   const order = this.parentNode;

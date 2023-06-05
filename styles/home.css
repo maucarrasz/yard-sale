@@ -36,7 +36,10 @@ body {
   height: var(--navbar-height);
   display: flex;
   align-items: center;
+  background-color: var(--white);
   box-shadow: 0px 2px 5px -3px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 999;
 }
 .navbar-list {
   position: relative;
@@ -186,6 +189,7 @@ nav ul li {
   margin: 0 auto;
   display: flex;
   position: relative;
+  padding-top: 60px;
 }
 .cards-container {
   --card-size: 140px;
@@ -267,8 +271,9 @@ nav ul li {
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 60px);
-  position: absolute;
-  background: #fff;
+  position: fixed;
+  top: 61px;
+  background-color: #fff;
   box-shadow: -1px -1px 5px -3px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -386,12 +391,13 @@ nav ul li {
 
 .cart-container {
   width: 100%;
-  height: 100%;
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 61px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  top: 61px;
+  right: 0;
   margin: 0 auto;
   background: #fff;
   box-shadow: -1px -1px 5px -3px rgba(0, 0, 0, 0.2);
@@ -407,9 +413,12 @@ nav ul li {
   align-items: center;
   margin: 40px 0 20px;
   padding: 0 20px;
-  font-size: var(--large);
   text-align: start;
 }
+.cart__title h1 {
+  font-size: var(--large);
+}
+
 .left-arrow {
   content: url("../images/flechita.svg");
   transform: rotate(180deg);
@@ -422,6 +431,16 @@ nav ul li {
   width: 100%;
   min-width: 300px;
   max-width: 450px;
+  height: 100%;
+  max-height: 65%;
+  overflow-y: auto;
+}
+.orders-checkout {
+  width: 100%;
+  min-width: 300px;
+  max-width: 450px;
+  max-height: 35%;
+  margin-top: auto;
 }
 
 .order {
@@ -488,7 +507,7 @@ nav ul li {
   gap: 16px;
   align-items: center;
   background-color: var(--text-input-field);
-  margin: 16px 16px 0;
+  margin: 20px 16px 0;
   border-radius: 8px;
   padding: 0 24px;
 }
@@ -543,7 +562,7 @@ nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 28px auto 20px;
+  margin: 20px auto;
   background: var(--hospital-green);
   color: var(--white);
   font-weight: bold;
